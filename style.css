@@ -1,0 +1,418 @@
+/* =========================================================
+   Cadastro de Aluno · UC4 Desenvolvimento Front-end
+   Profa. Ma. Tamara Simões
+   Paleta "Lousa": ardósia escura, ciano elétrico e giz amarelo
+   ========================================================= */
+
+/* ---------- 1. Variáveis (tokens) ---------- */
+:root {
+  /* cores */
+  --fundo: #0e1822;
+  --superficie: #16232f;
+  --superficie-2: #1e2e3c;
+  --linha: #2c3f50;
+  --grade: #1a2835;
+  --texto: #e9eef2;
+  --texto-suave: #9aacbb;
+  --ciano: #22d8f0;
+  --ciano-suave: #10363f;
+  --sobre-ciano: #04141c;
+  --anotacao: #ffcf5a;
+  --sucesso: #4ade9a;
+  --erro: #ff7a7a;
+
+  /* fontes */
+  --font-sans: "Lexend", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --font-mao: "Caveat", "Segoe Print", cursive;
+
+  /* espaços (base de 4px) */
+  --espaco-1: 4px;
+  --espaco-2: 8px;
+  --espaco-3: 12px;
+  --espaco-4: 16px;
+  --espaco-6: 24px;
+  --espaco-8: 32px;
+  --espaco-12: 48px;
+  --espaco-16: 64px;
+
+  /* cantos */
+  --raio-sm: 4px;
+  --raio-md: 8px;
+  --raio-lg: 16px;
+
+  --foco: 0 0 0 3px var(--ciano);
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 350;
+  line-height: 1.6;
+  color: var(--texto);
+  background-color: var(--fundo);
+  /* grade quadriculada da lousa */
+  background-image:
+    linear-gradient(var(--grade) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grade) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+}
+
+/* ---------- 3. Estrutura da página ---------- */
+.pagina {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-4);
+  padding: var(--espaco-4) var(--espaco-8);
+  background: var(--fundo);
+  border-bottom: 1px solid var(--linha);
+}
+
+.topo__marca {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.topo__info {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--texto-suave);
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  margin-left: 0.15em;
+  vertical-align: -0.12em;
+  background: var(--ciano);
+  border-radius: var(--raio-sm);
+  animation: piscar 1.1s steps(1) infinite;
+}
+
+@keyframes piscar {
+  50% { opacity: 0; }
+}
+
+.conteudo {
+  flex: 1;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--espaco-12) var(--espaco-8);
+}
+
+.intro {
+  margin-bottom: var(--espaco-8);
+}
+
+.intro h1 {
+  font-size: 44px;
+  margin-bottom: var(--espaco-2);
+}
+
+.intro p {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--texto-suave);
+}
+
+.colunas {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--espaco-6);
+  align-items: start;
+}
+
+.cartao {
+  background: var(--superficie);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-lg);
+  padding: var(--espaco-8);
+}
+
+.cartao h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: var(--espaco-4);
+}
+
+.rodape {
+  padding: var(--espaco-6) var(--espaco-8);
+  font-size: 14px;
+  color: var(--texto-suave);
+  text-align: center;
+  border-top: 1px solid var(--linha);
+}
+
+/* ---------- 4. Formulário ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+}
+
+fieldset {
+  margin: 0;
+  padding: var(--espaco-6);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-4);
+}
+
+legend {
+  padding: 0 var(--espaco-2);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--ciano);
+}
+
+/* um rótulo + campo agrupados numa div.campo */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+}
+
+label {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  font: inherit;
+  font-size: 16px;
+  color: var(--texto);
+  background: var(--superficie-2);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-md);
+  padding: var(--espaco-3) var(--espaco-4);
+  transition: border-color 0.15s;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--texto-suave);
+  opacity: 0.8;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--texto-suave);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: var(--foco);
+  border-color: var(--ciano);
+}
+
+textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+/* ícone do calendário visível no tema escuro */
+input[type="date"] {
+  color-scheme: dark;
+}
+
+/* radio e checkbox: lado a lado com o rótulo */
+input[type="radio"],
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin: 0;
+  accent-color: var(--ciano);
+  cursor: pointer;
+}
+
+.opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-4);
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.opcao label {
+  cursor: pointer;
+}
+
+/* ---------- 5. Botões ---------- */
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-3);
+}
+
+button {
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  padding: var(--espaco-3) var(--espaco-6);
+  border-radius: var(--raio-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: filter 0.15s, background 0.15s;
+}
+
+/* botão principal (submit ou o primeiro botão) */
+button[type="submit"],
+.botao-principal {
+  background: var(--ciano);
+  color: var(--sobre-ciano);
+}
+
+button[type="submit"]:hover,
+.botao-principal:hover {
+  filter: brightness(1.1);
+}
+
+/* botão secundário (reset) */
+button[type="reset"],
+.botao-secundario {
+  background: transparent;
+  color: var(--texto);
+  border-color: var(--linha);
+}
+
+button[type="reset"]:hover,
+.botao-secundario:hover {
+  background: var(--superficie-2);
+}
+
+/* ---------- 6. Estados (usados pelo DOM na parte 2) ---------- */
+
+/* campo que não passou na validação */
+.invalido {
+  border-color: var(--erro) !important;
+}
+
+/* parágrafo de mensagem: <p id="mensagem" class="mensagem"></p> */
+.mensagem {
+  min-height: 1.6em;
+  font-size: 15px;
+}
+
+.mensagem.erro {
+  color: var(--erro);
+}
+
+.mensagem.sucesso {
+  color: var(--sucesso);
+}
+
+/* ---------- 7. Lista criada pelo DOM ---------- */
+.cartao--resultado {
+  position: sticky;
+  top: var(--espaco-6);
+}
+
+.vazio {
+  font-size: 15px;
+  color: var(--texto-suave);
+}
+
+.lista-alunos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.lista-alunos li {
+  padding: var(--espaco-3) var(--espaco-4);
+  background: var(--superficie-2);
+  border: 1px solid var(--linha);
+  border-left: 4px solid var(--ciano);
+  border-radius: var(--raio-md);
+  font-size: 15px;
+}
+
+.lista-alunos li strong {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.lista-alunos li span {
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+/* ---------- 8. Celular ---------- */
+@media (max-width: 800px) {
+  .colunas {
+    grid-template-columns: 1fr;
+  }
+
+  .cartao--resultado {
+    position: static;
+  }
+
+  .conteudo {
+    padding: var(--espaco-8) var(--espaco-4);
+  }
+
+  .cartao {
+    padding: var(--espaco-6);
+  }
+
+  .intro h1 {
+    font-size: 32px;
+  }
+
+  .topo {
+    padding: var(--espaco-4);
+  }
+
+  .topo__info {
+    display: none;
+  }
+}
