@@ -1,7 +1,6 @@
 # Cadastro de Aluno · Formulários + DOM
 
 Projeto base da aula de **Formulários no HTML** e **primeiros passos no DOM**
-UC4 · Desenvolvimento Front-end · Profa. Ma. Tamara Simões
 
 ## O que tem aqui
 
