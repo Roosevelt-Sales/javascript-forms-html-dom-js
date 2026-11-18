@@ -1,4 +1,4 @@
-# [DW][AULA 10] Introdução ao DOM JS
+# Introdução ao DOM JS
 
 ### Conteúdos
  - <a href="https://github.com/tamaratryber/functions-and-dom/blob/main/README.md#introdução">Introdução</a>
