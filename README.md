@@ -2,6 +2,8 @@
 
 Projeto base da aula de **Formulários no HTML** e **primeiros passos no DOM**
 
+[Link para os slides](https://docs.google.com/presentation/d/1_x4UZvBJLEcuUf9n8DuZYqAh5kkcUyfZwU5urJ-8s40/edit?usp=sharing)
+
 ## O que tem aqui
 
 | Arquivo | O que é |
