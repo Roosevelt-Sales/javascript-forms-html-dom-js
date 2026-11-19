@@ -34,8 +34,34 @@
 
         <!-- PARTE 1: monte o formulário aqui dentro -->
         <div id="app" class="cartao">
+          
+          <form> 
+            <fieldset>
+            <legend>Dados Pessoais</legend>
+            <label for="">Nome Completo</label>
+            <input type="text" placeholder="Ex: Ana Souza">
+            <label for="">E-mail</label>
+            <input type="text" placeholder="Anasouza@gmail.com">
+            </fieldset> 
 
-          <!-- Seu <form> vai aqui -->
+            <fieldset class="options">
+              <legend>Turno</legend>
+              <input type="radio" name="Turno" id="Manhã">
+              <label for="Manhã">Manhã</label>
+              <input type="radio" name="Turno" id="Tarde">
+              <label for="Tarde">Tarde</label>
+              <input type="radio" name="Turno" id="Noite">
+              <label for="Noite">Noite</label>
+            </fieldset>
+
+            <fieldset class="options">
+            <input type="checkbox" name="" id="termos" required>
+            <label for="">Li e aceito as regras da turma</label>
+            </fieldset>
+
+            <button class="botao-principal">Cadastrar</button>
+            <button>Limpar</button>
+          </form>
 
         </div>
 
