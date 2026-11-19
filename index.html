@@ -36,6 +36,30 @@
         <div id="app" class="cartao">
 
           <!-- Seu <form> vai aqui -->
+            <form >
+             <fieldset>
+              <legend>Dados Pessoais</legend>
+               <label for="">Nome completo</label>
+                <input type="text" placeholder="Ex: Valentina">
+               <label for="">E-mail</label>
+                <input type="email" placeholder="Ex: valentina@gmail.com">
+             </fieldset>
+             <fieldset class="options">
+              <legend>Turno</legend>
+               <input type="radio" name="turno" id="Manhã" checked>
+               <label for="Manhã">Manhã</label>
+               <input type="radio" name="turno" id="Tarde">
+               <label for="Tarde">Tarde</label>
+               <input type="radio" name="turno" id="Noite" disabled>
+               <label for="Noite">Noite</label>
+             </fieldset>
+             <fieldset class="options">
+              <input type="checkbox" name="" id="termos" required>
+              <label for="termos">Li e aceito as regras da turma.</label>
+             </fieldset>
+             <button class="botao-principal">Cadastrar</button>
+             <button>Limpar</button>
+            </form>
 
         </div>
 
